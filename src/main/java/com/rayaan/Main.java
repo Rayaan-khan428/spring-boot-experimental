@@ -13,9 +13,10 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
-    @GetMapping("/") // allows users to use as Rest endpoint
-    public String greet() {
-        return "Hello";
+    @GetMapping("/greet") // allows users to use as Rest endpoint
+    public GreetResponse greet() {
+        return new GreetResponse("Hello");
     }
 
+    record GreetResponse(String greet){}
 }
